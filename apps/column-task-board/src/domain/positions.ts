@@ -4,8 +4,8 @@ export function midpoint(before: number | undefined, after: number | undefined):
   if (before === undefined && after === undefined) return 1000;
   if (before === undefined) return after! - 1000;
   if (after === undefined) return before + 1000;
-  if (after - before < MIN_GAP) return before + MIN_GAP / 2;
-  return (before + after) / 2;
+  if (after <= before) return before + MIN_GAP / 2;
+  return before + (after - before) / 2;
 }
 
 export function needsResequence(positions: number[]): boolean {
