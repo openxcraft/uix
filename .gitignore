@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+out/
+coverage/
+*.tsbuildinfo
+
+# Framework build caches
+.turbo/
+.astro/
+.next/
+.output/
+.nitro/
+.vite/
+
+# Mobile
+.expo/
+apps/*/ios/
+apps/*/android/
+
+# Environment & secrets — NEVER commit credentials
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+
+# Deploy platforms
+.vercel/
+.netlify/
+.wrangler/
+
+# Local caches
+.eslintcache
+.pnpm-store/

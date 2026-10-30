@@ -1,0 +1,70 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/space-grotesk";
+@import "tailwindcss";
+@import "@uix/tokens/css";
+
+@theme inline {
+  --font-sans: var(--font-family-sans);
+  --font-display: var(--font-family-display);
+  --font-mono: var(--font-family-mono);
+
+  --color-surface: var(--color-semantic-surface-default);
+  --color-surface-raised: var(--color-semantic-surface-raised);
+  --color-surface-overlay: var(--color-semantic-surface-overlay);
+  --color-surface-sunken: var(--color-semantic-surface-sunken);
+  --color-text-primary: var(--color-semantic-text-primary);
+  --color-text-secondary: var(--color-semantic-text-secondary);
+  --color-text-muted: var(--color-semantic-text-muted);
+  --color-text-inverse: var(--color-semantic-text-inverse);
+  --color-text-accent: var(--color-semantic-text-accent);
+  --color-border-default: var(--color-semantic-border-default);
+  --color-border-strong: var(--color-semantic-border-strong);
+  --color-border-focus: var(--color-semantic-border-focus);
+  --color-primary: var(--color-semantic-interactive-primary-default);
+  --color-primary-hover: var(--color-semantic-interactive-primary-hover);
+  --color-primary-active: var(--color-semantic-interactive-primary-active);
+  --color-on-primary: var(--color-semantic-interactive-primary-text);
+  --color-secondary: var(--color-semantic-interactive-secondary-default);
+  --color-secondary-hover: var(--color-semantic-interactive-secondary-hover);
+  --color-on-secondary: var(--color-semantic-interactive-secondary-text);
+  --color-success-fg: var(--color-semantic-feedback-success-fg);
+  --color-success-bg: var(--color-semantic-feedback-success-bg);
+  --color-warning-fg: var(--color-semantic-feedback-warning-fg);
+  --color-warning-bg: var(--color-semantic-feedback-warning-bg);
+  --color-danger-fg: var(--color-semantic-feedback-danger-fg);
+  --color-danger-bg: var(--color-semantic-feedback-danger-bg);
+  --color-info-fg: var(--color-semantic-feedback-info-fg);
+  --color-info-bg: var(--color-semantic-feedback-info-bg);
+
+  --color-label-ember: var(--color-ember-600);
+  --color-label-teal: var(--color-teal-600);
+  --color-label-green: var(--color-green-600);
+  --color-label-amber: var(--color-amber-600);
+  --color-label-red: var(--color-red-600);
+  --color-label-blue: var(--color-blue-600);
+  --color-label-gray: var(--color-gray-600);
+  --color-label-ember-deep: var(--color-ember-800);
+  --color-label-teal-deep: var(--color-teal-800);
+  --color-label-red-deep: var(--color-red-800);
+}
+
+html {
+  font-family: var(--font-family-sans);
+  color: var(--color-semantic-text-primary);
+  background-color: var(--color-semantic-surface-default);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-semantic-border-focus);
+  outline-offset: 2px;
+}
+
+.drop-target {
+  outline: 2px dashed var(--color-semantic-border-focus);
+  outline-offset: -2px;
+}
