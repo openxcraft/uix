@@ -26,16 +26,21 @@ export interface Page<T> {
   nextCursor: string | null;
 }
 
-function idempotencyKey(): string {
+function createIdempotencyKey(): string {
   return crypto.randomUUID();
 }
 
-async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
+async function request<T>(
+  method: string,
+  path: string,
+  body?: unknown,
+  key = createIdempotencyKey(),
+): Promise<T> {
   const init: RequestInit = {
     method,
     headers: {
       "content-type": "application/json",
-      "idempotency-key": idempotencyKey(),
+      "idempotency-key": key,
     },
   };
   if (body !== undefined) init.body = JSON.stringify(body);
@@ -93,7 +98,7 @@ export async function flushQueue(): Promise<number> {
     const keep: QueueItem[] = [];
     for (const item of queue) {
       try {
-        await request(item.method, item.path, item.body);
+        await request(item.method, item.path, item.body, item.id);
       } catch {
         keep.push({ ...item, attempts: item.attempts + 1 });
       }
