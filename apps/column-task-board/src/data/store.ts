@@ -135,19 +135,22 @@ function resequence(next: AppState, cards: Card[]): AppState {
     list.push(c);
     byColumn.set(c.columnId, list);
   }
-  let changed = false;
-  const out = cards.map((c) => c);
+  let out: Card[] | null = null;
+  let indexById: Map<Id, number> | null = null;
   for (const list of byColumn.values()) {
     if (!needsResequence(list.map((c) => c.position))) continue;
-    changed = true;
+    if (out === null) {
+      out = [...cards];
+      indexById = new Map(cards.map((card, index) => [card.id, index]));
+    }
     const sorted = [...list].sort((a, b) => a.position - b.position);
     const positions = densePositions(sorted.length);
     sorted.forEach((c, i) => {
-      const target = out.findIndex((x) => x.id === c.id);
-      out[target] = { ...c, position: positions[i]! };
+      const target = indexById!.get(c.id);
+      if (target !== undefined) out![target] = { ...c, position: positions[i]! };
     });
   }
-  return changed || out !== cards ? { ...next, cards: out } : { ...next, cards };
+  return out === null ? { ...next, cards } : { ...next, cards: out };
 }
 
 function dispatchEvents(next: AppState, events: RuleEvent[]): AppState {
