@@ -9,3 +9,6 @@ specs/
 design/
 docs/
 *.md
+
+# Archived specification packages are verbatim artifacts
+.spec/
