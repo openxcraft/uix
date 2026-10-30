@@ -18,7 +18,17 @@ describe("midpoint", () => {
     expect(midpoint(1000, 2000)).toBe(1500);
   });
 
-  it("forces a gap on collision", () => {
+  it("keeps a positive sub-threshold midpoint between its neighbors", () => {
+    const before = 1000;
+    const after = before + 2e-7;
+    const position = midpoint(before, after);
+
+    expect(position).toBeGreaterThan(before);
+    expect(position).toBeLessThan(after);
+    expect(needsResequence([before, position, after])).toBe(true);
+  });
+
+  it("forces a gap on equal-position collisions", () => {
     expect(midpoint(1000, 1000)).toBeGreaterThan(1000);
     expect(midpoint(1000, 1000)).toBeLessThanOrEqual(1000.000001);
   });
