@@ -1,0 +1,26 @@
+id: SPEC-000010001
+title: Column-based task board with cards, labels, and rules
+slug: column-task-board
+tier: T1
+status: published
+category: productivity
+platform_class: web
+family: FAM-000001
+capabilities: [CAP-0004, CAP-0011, CAP-0012, CAP-0034, CAP-0037]
+version: 1.0.0
+created: 2026-10-30
+updated: 2026-10-30
+gates:
+  name-free: {result: pass, date: 2026-10-30}
+  expression-free: {result: pass, date: 2026-10-30}
+  asset-free: {result: pass, date: 2026-10-30}
+  secret-free: {result: pass, date: 2026-10-30}
+  similarity: {result: pass, date: 2026-10-30, method: manual linguistic comparison against both public sources}
+  reverse-identification: {result: pass, date: 2026-10-30, confidence: low}
+  sufficiency: {result: pass, date: 2026-10-30}
+  neutrality: {result: pass, date: 2026-10-30}
+checksum: 268e8fed9e7adfe13e2e5e7175b5eeef9106a7b2ded2ba21a79da5ceb8692625
+provenance_ref: PRV-3F9A2C71
+legal_flags: []
+owner_role: spec-author
+related: []
